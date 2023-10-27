@@ -1,0 +1,49 @@
+﻿@model List<Portfolio>
+
+<div class="col-8">
+    <div class="card shadow">
+        <div class="card-header border-0">
+            <h3 class="mb-0">Son 5 Proje</h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Project Adı</th>
+                        <th scope="col">Küçük Resim Yolu</th>
+                        <th scope="col">Büyük Resim Yolu</th>
+                        <th scope="col">Projece Linki</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>@item.PortfolioID</th>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm">@item.Name</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                @item.ImageUrl
+                            </td>
+                            <td>
+                                @item.ImageUrl2
+                            </td>
+                            <td>
+                                @item.ProjectUrl
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,61 @@
+﻿@model Experience
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-xl-12">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">Yeni Deneyim Ekleme</h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="addexperience" asp-controller="experience">
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Name">Şirket Adı</label>
+                                <input type="text"  class="form-control form-control-alternative" asp-for="Name" required>
+                            </div>
+                        </div>
+       
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="ImageUrl">Resim Yolu</label>
+                                <input type="text" class="form-control form-control-alternative" asp-for="ImageUrl" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Position">Pozisyon</label>
+                                <input type="text" class="form-control form-control-alternative" asp-for="Position" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Description">Açıklama</label>
+                                <textarea type="text" class="form-control form-control-alternative" asp-for="Description" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Date">Tarih</label>
+                                <input type="text" class="form-control" asp-for="Date" required>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+

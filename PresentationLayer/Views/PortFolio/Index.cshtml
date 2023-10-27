@@ -1,0 +1,47 @@
+﻿@model List<Portfolio>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <h3 class="mb-0">Proje Listeleme Sayfası</h3>
+        </div>
+        <div class="col-4 text-right">
+            <a asp-action="AddPortfolio" asp-controller="Portfolio" class="btn btn-sm btn-primary">Yeni Proje EKle</a>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">İsim</th>
+                <th scope="col">Küçük Resim Yolu</th>
+                <th scope="col">Büyük Resim Yolu</th>
+                <th scope="col">Proje Linki</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <th>@i.PortfolioID</th>
+                    <td>  @i.Name </td>
+                    <td>  @i.ImageUrl </td>
+                    <td>  @i.ImageUrl2 </td>
+                    <td>  @i.ProjectUrl </td>
+                    <td> <a asp-action="EditPortfolio" asp-controller="Portfolio" asp-route-id="@i.PortfolioID" class="btn btn-success">Düzenle</a></td>
+                    <td> <a asp-action="DeletePortfolio" asp-controller="Portfolio" asp-route-id="@i.PortfolioID" class="btn btn-danger">Sil</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

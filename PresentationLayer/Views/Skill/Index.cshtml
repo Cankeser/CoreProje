@@ -1,0 +1,52 @@
+﻿@model List<Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <h3 class="mb-0">Yetenek Listeleme Sayfası</h3>
+        </div>
+        <div class="col-4 text-right">
+            <a asp-action="addskill" asp-controller="skill" class="btn btn-sm btn-primary">Yeni Yetenek EKle</a>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Oran</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <th>@i.SkillID</th>
+                    <td>  @i.Title </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="mr-2">@i.Value%</span>
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="@i.Value" aria-valuemin="0" aria-valuemax="100" style="width:@i.Value%;"></div>
+                                </div>
+                            </div>
+                        </div> 
+                    </td>
+                    <td> <a asp-action="editskill" asp-controller="skill" asp-route-id="@i.SkillID" class="btn btn-success">Düzenle</a></td>
+                    <td> <a asp-action="DeleteSkill" asp-controller="skill" asp-route-id="@i.SkillID" class="btn btn-danger">Sil</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

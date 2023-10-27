@@ -1,0 +1,44 @@
+﻿@model List<Message>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <h3 class="mb-0">Mesajlar</h3>
+        </div>
+
+    </div>
+
+</div>
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col"> İsim</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Tarih</th>            
+                <th scope="col">Okundu mu?</th>            
+                <th scope="col">Sil</th>     
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <th>@i.MessageID</th>
+                    <td>  @i.Name </td>
+                    <td>  @i.Mail </td>
+                    <td>  @i.Date </td>
+                    @if (i.Status == true) {<td>Evet</td>}
+                    else{<td>Hayır</td>}
+                    <td> <a asp-action="MessageDetail" asp-controller="Message" asp-route-id="@i.MessageID" class="btn btn-danger">Oku</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,41 @@
+﻿@model List<Feature>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <h3 class="mb-0">Öne Çıkan Listeleme Sayfası</h3>
+        </div>
+     
+    </div>
+
+</div>
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Üst Başlık</th>
+                <th scope="col">İsim Soyisim</th>
+                <th scope="col">Alt Başlık</th>
+                <th scope="col">Düzenle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <th>@i.FeatureID</th>
+                    <td>  @i.Header </td>
+                    <td>  @i.Name </td>
+                    <td>  @i.Title </td>
+                    <td> <a asp-action="editfeature" asp-controller="feature" asp-route-id="@i.FeatureID" class="btn btn-success">Düzenle</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,37 @@
+﻿@model List<Message>
+<div class="col-4">
+
+    <div class="card shadow">
+        <div class="card-header">
+            <strong class="card-title">Mesajlar</strong>
+            <a class="float-right small text-muted" asp-action="index" asp-controller="message"><span>Hepsini Göster</span></a>
+        </div>
+        <div class="card-body">
+            <div class="list-group list-group-flush my-n3">
+                @foreach (var item in Model)
+                {
+                    var c = "white";
+                    @if (item.Status == false)
+                    { c = "aliceblue"; }
+                    <div class="list-group-item" style="background:@c;">
+                        <div class="row align-items-center">
+
+                            <div class="col">
+                                <strong>@item.Name</strong>
+                                <div class="my-0 text-muted small">@item.Mail</div>
+
+                            </div>
+                            <div class="col-auto">
+                                <span>@item.Date.ToString("dd.MM.yyyy hh.mm")</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+
+            </div> <!-- / .list-group -->
+        </div> <!-- / .card-body -->
+    </div> <!-- / .card -->
+
+</div>

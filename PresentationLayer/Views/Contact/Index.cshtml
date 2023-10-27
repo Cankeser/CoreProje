@@ -1,0 +1,42 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <h3 class="mb-0">İletişim Listeleme Sayfası</h3>
+        </div>
+     
+    </div>
+
+</div>
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Düzenle</th>      
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <th>@i.ContactID</th>
+                    <td>  @i.Title </td>
+                    <td>  @i.Mail </td>
+                    <td>  @i.Phone </td>
+                    <td> <a asp-action="editcontact" asp-controller="contact" asp-route-id="@i.ContactID" class="btn btn-success">Düzenle</a></td>
+                   
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

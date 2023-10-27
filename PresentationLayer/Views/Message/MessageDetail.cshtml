@@ -1,0 +1,57 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">Mesaj </h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <input type="text" hidden class="form-control form-control-alternative" asp-for="MessageID" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Name">İsim</label>
+                                <input type="text" readonly class="form-control form-control-alternative" asp-for="Name">
+                            </div>
+                        </div>
+                       <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Mail">Mail</label>
+                                <input type="text" readonly class="form-control form-control-alternative" asp-for="Mail">
+                            </div>
+                        </div>
+                      
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Date">Tarih</label>                             
+                                <input type="text" readonly class="form-control form-control-alternative" asp-for="Date">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Name">Mesaj</label>
+                                <textarea type="text" readonly class="form-control form-control-alternative" asp-for="Content" rows="12"></textarea>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-primary" asp-action="index" asp-controller="Message">Mesajlara Dön</a>
+            </form>
+        </div>
+    </div>
+</div>

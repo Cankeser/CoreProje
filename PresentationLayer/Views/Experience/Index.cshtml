@@ -1,0 +1,47 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <h3 class="mb-0">Deneyim Listeleme Sayfası</h3>
+        </div>
+        <div class="col-4 text-right">
+            <a asp-action="AddExperience" asp-controller="Experience" class="btn btn-sm btn-primary">Yeni Deneyim EKle</a>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Şirket Adı</th>
+                <th scope="col">Tarih</th>
+                <th scope="col">Resim Yolu</th>
+                <th scope="col">Pozisyon</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <th>@i.ExperienceID</th>
+                    <td>  @i.Name </td>
+                    <td>  @i.Date </td>
+                    <td>  @i.ImageUrl </td>
+                    <td>  @i.Position </td>
+                    <td> <a asp-action="EditExperience" asp-controller="Experience" asp-route-id="@i.ExperienceID" class="btn btn-success">Düzenle</a></td>
+                    <td> <a asp-action="DeleteExperience" asp-controller="Experience" asp-route-id="@i.ExperienceID" class="btn btn-danger">Sil</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "EditContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">İletişim Düzenleme Sayfası</h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="editcontact" asp-controller="contact">
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <input type="text" hidden class="form-control form-control-alternative" asp-for="ContactID" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Title">Başlık</label>
+                                <input type="text" id="input-username" class="form-control form-control-alternative" asp-for="Title" required>
+                            </div>
+                        </div>  <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Mail">Mail</label>
+                                <input type="text" id="input-username" class="form-control form-control-alternative" asp-for="Mail" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Phone">Telefon</label>
+                                <input type="text" id="input-username" class="form-control form-control-alternative" asp-for="Phone" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label" asp-for="Description">Açıklama</label>
+                                <textarea type="text" class="form-control form-control-alternative" asp-for="Description" rows="8" required></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="btn btn-primary" type="submit">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
